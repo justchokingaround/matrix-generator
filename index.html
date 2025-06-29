@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Matrix Generator</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Dependency Matrix Generator</h1>
+
+        <div class="dependencies-section">
+            <h2>Dependencies</h2>
+            <div class="dependency-form">
+                <input type="text" id="from-activity" placeholder="From">
+                <input type="text" id="to-activity" placeholder="To">
+                <select id="temporal-dependency">
+                    <option value="none" disabled selected>Temporal</option>
+                    <option value="direct">Direct</option>
+                    <option value="eventual">Eventual</option>
+                    <option value="independence">Independence</option>
+                </select>
+                <select id="temporal-direction">
+                    <option value="forward">Forward</option>
+                    <option value="backward">Backward</option>
+                    <option value="both" selected>Both</option>
+                </select>
+                <select id="existential-dependency">
+                    <option value="none" disabled selected>Existential</option>
+                    <option value="implication">Implication</option>
+                    <option value="equivalence">Equivalence</option>
+                    <option value="negated equivalence">Negated Equivalence</option>
+                    <option value="nand">NAND</option>
+                    <option value="or">OR</option>
+                    <option value="independence">Independence</option>
+                </select>
+                <select id="existential-direction">
+                    <option value="forward">Forward</option>
+                    <option value="backward">Backward</option>
+                    <option value="both">Both</option>
+                </select>
+                <button id="add-dependency">Add Dependency</button>
+            </div>
+            <div class="dependencies-list">
+                <h3>Current Dependencies</h3>
+                <ul id="dependency-items"></ul>
+            </div>
+        </div>
+
+        <div class="generate-section">
+            <button id="generate-yaml">Generate YAML</button>
+            <div class="yaml-output">
+                <h3>Generated YAML</h3>
+                <pre id="yaml-display"></pre>
+                <button id="download-yaml" disabled>Download YAML</button>
+            </div>
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
